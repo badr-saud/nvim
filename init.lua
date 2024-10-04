@@ -14,15 +14,17 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
+vim.api.nvim_set_option("clipboard", "unnamed")
 
 require("lazy").setup("plugins")
 require("vim-options")
 
 -- for random colorscheme selection
-math.randomseed(os.time())
-local colorschemes = { "rose-pine", "onenord",  "catppuccin", "everforest", "tokyonight", "nightfox", "monokai-pro" }
-local cs = colorschemes[math.random(1, #colorschemes)]
-vim.cmd.colorscheme(cs)
-print(cs)
+--math.randomseed(os.time())
+--local colorschemes = { "rose-pine", "onenord",  "catppuccin", "everforest", "tokyonight", "nightfox", "monokai-pro" }
+--local cs = colorschemes[math.random(1, #colorschemes)]
+--vim.cmd.colorscheme(cs)
+vim.cmd.colorscheme("onenord")
+--print(cs)
 
 
