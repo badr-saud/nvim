@@ -9,7 +9,17 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver", "pyright", "eslint", "texlab", "ltex", "gopls", "clangd" }, -- Added "gopls"
+				ensure_installed = {
+					"lua_ls",
+					"tsserver",
+					"pyright",
+					"eslint",
+					"texlab",
+					"ltex",
+					"gopls",
+					"clangd",
+					"cssls",
+				}, -- Added "gopls"
 			})
 		end,
 	},
@@ -92,18 +102,35 @@ return {
 				},
 			})
 
-      -- HTML with Jinja support
-    lspconfig.html.setup({
-      capabilities = capabilities,
-      filetypes = { "html", "jinja", "jinja.html" }, -- Add Jinja filetypes
-      settings = {
-        html = {
-          format = {
-            templating = true, -- Enable templating for Jinja
-          },
-        },
-      },
-    })
+			-- HTML with Jinja support
+			lspconfig.html.setup({
+				capabilities = capabilities,
+				filetypes = { "html", "jinja", "jinja.html" }, -- Add Jinja filetypes
+				settings = {
+					html = {
+						format = {
+							templating = true, -- Enable templating for Jinja
+						},
+					},
+				},
+			})
+
+			-- CSS/SCSS support
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+				filetypes = { "css", "scss", "less" }, -- Add SCSS and Less
+				settings = {
+					css = {
+						validate = true,
+					},
+					scss = {
+						validate = true,
+					},
+					less = {
+						validate = true,
+					},
+				},
+			})
 
 			-- Keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
