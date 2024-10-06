@@ -92,6 +92,19 @@ return {
 				},
 			})
 
+      -- HTML with Jinja support
+    lspconfig.html.setup({
+      capabilities = capabilities,
+      filetypes = { "html", "jinja", "jinja.html" }, -- Add Jinja filetypes
+      settings = {
+        html = {
+          format = {
+            templating = true, -- Enable templating for Jinja
+          },
+        },
+      },
+    })
+
 			-- Keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
