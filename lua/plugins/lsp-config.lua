@@ -19,6 +19,7 @@ return {
 					"gopls",
 					"clangd",
 					"cssls",
+          "bashls",
 				}, -- Added "gopls"
 			})
 		end,
@@ -130,6 +131,12 @@ return {
 						validate = true,
 					},
 				},
+			})
+
+      -- Shell scripting (Bash)
+			lspconfig.bashls.setup({
+				capabilities = capabilities,
+				filetypes = { "sh", "bash", "zsh" }, -- Shell file types
 			})
 
 			-- Keymaps

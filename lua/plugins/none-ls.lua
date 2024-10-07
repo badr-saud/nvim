@@ -11,10 +11,12 @@ return {
 				null_ls.builtins.formatting.latexindent,
 				null_ls.builtins.formatting.gofumpt,
 				null_ls.builtins.formatting.goimports_reviser,
-        null_ls.builtins.formatting.clang_format,
+				null_ls.builtins.formatting.clang_format,
+				null_ls.builtins.formatting.shfmt,
 				null_ls.builtins.diagnostics.eslint_d,
 				null_ls.builtins.diagnostics.ltex,
 				null_ls.builtins.diagnostics.gopls,
+				null_ls.builtins.diagnostics.shellcheck,
 			},
 		})
 		vim.keymap.set("n", "<space>gf", vim.lsp.buf.format, {})
