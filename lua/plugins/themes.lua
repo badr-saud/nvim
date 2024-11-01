@@ -19,7 +19,7 @@ return {
             -- Optionally configure and load the colorscheme
             -- directly inside the plugin declaration.
             vim.g.everforest_enable_italic = false
-            vim.g.everforest_transparent_background = 1
+            vim.g.everforest_transparent_background = 2 
         end,
     },
     {
