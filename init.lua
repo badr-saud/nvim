@@ -24,5 +24,5 @@ require("vim-options")
 --local colorschemes = { "rose-pine", "onenord",  "catppuccin", "everforest", "tokyonight", "nightfox", "monokai-pro" ,"github_dark_default" }
 --local cs = colorschemes[math.random(1, #colorschemes)]
 --vim.cmd.colorscheme(cs)
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("onenord")
 --print(cs)
