@@ -20,6 +20,7 @@ vim.opt.cursorline = true
 
 -- clipboard
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 
 -- split windows
 vim.opt.splitright = true

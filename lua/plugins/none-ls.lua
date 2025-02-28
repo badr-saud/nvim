@@ -17,6 +17,10 @@ return {
         null_ls.builtins.diagnostics.ltex,
         null_ls.builtins.diagnostics.gopls,
         null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.formatting.google_java_format,
+        null_ls.builtins.diagnostics.checkstyle.with({
+          extra_args = { "-c", vim.fn.expand("~/.config/checkstyle/google_checks.xml") },
+        }),
       },
     })
     vim.keymap.set("n", "<space>gf", vim.lsp.buf.format, {})

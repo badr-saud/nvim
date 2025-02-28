@@ -11,7 +11,6 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "tsserver",
           "pyright",
           "eslint",
           "texlab",
@@ -20,6 +19,7 @@ return {
           "clangd",
           "cssls",
           "bashls",
+          "jdtls",
         }, -- Added "gopls"
       })
     end,
@@ -36,7 +36,7 @@ return {
       })
 
       -- TypeScript
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
 
@@ -141,6 +141,11 @@ return {
       lspconfig.bashls.setup({
         capabilities = capabilities,
         filetypes = { "sh", "bash", "zsh" }, -- Shell file types
+      })
+
+      -- jdtls 
+      lspconfig.jdtls.setup({
+        capabilities = capabilities,
       })
 
       -- Keymaps
