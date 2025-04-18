@@ -24,7 +24,8 @@ require("vim-options")
 --local colorschemes = { "rose-pine", "onenord",  "catppuccin", "everforest", "tokyonight", "nightfox", "monokai-pro" ,"github_dark_default" }
 --local cs = colorschemes[math.random(1, #colorschemes)]
 --vim.cmd.colorscheme(cs)
-vim.cmd.colorscheme("onenord")
+-- vim.cmd.colorscheme("onenord")
+vim.cmd.colorscheme("catppuccin")
 --print(cs)
 
 --Terminal configuration
@@ -42,3 +43,11 @@ vim.keymap.set("n", "<space>tt", function()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 5)
 end)
+
+-- reserving cursor shape in terminal
+vim.cmd([[
+    augroup RestoreCursorShapeOnExit
+        autocmd!
+        autocmd VimLeave * set guicursor=a:ver1
+    augroup END
+]])
