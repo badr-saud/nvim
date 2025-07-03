@@ -25,7 +25,8 @@ require("vim-options")
 --local cs = colorschemes[math.random(1, #colorschemes)]
 --vim.cmd.colorscheme(cs)
 -- vim.cmd.colorscheme("onenord")
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("rose-pine")
+-- vim.cmd.colorscheme("catppuccin")
 --print(cs)
 
 --Terminal configuration
