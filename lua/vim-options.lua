@@ -7,11 +7,12 @@ vim.g.background = "light"
 
 vim.opt.swapfile = false
 
--- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+-- TmuxNavigator key mappings
+vim.keymap.set("n", "<c-h>", "<cmd> TmuxNavigateLeft<cr>", { silent = true })
+vim.keymap.set("n", "<c-j>", "<cmd> TmuxNavigateDown<cr>", { silent = true })
+vim.keymap.set("n", "<c-k>", "<cmd> TmuxNavigateUp<cr>", { silent = true })
+vim.keymap.set("n", "<c-l>", "<cmd> TmuxNavigateRight<cr>", { silent = true })
+vim.keymap.set("n", "<c-\\>", "<cmd> TmuxNavigatePrevious<cr>", { silent = true })
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
