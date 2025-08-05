@@ -25,8 +25,11 @@ require("vim-options")
 --local cs = colorschemes[math.random(1, #colorschemes)]
 --vim.cmd.colorscheme(cs)
 -- vim.cmd.colorscheme("onenord")
--- vim.cmd.colorscheme("github_dark_default")
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("github_dark_default")
+-- vim.cmd.colorscheme("catppuccin")
+-- vim.cmd.colorscheme("github_light_default")
+-- vim.cmd.colorscheme("github_light_tritanopia")
+-- vim.cmd.colorscheme("tokyonight-day")
 --print(cs)
 
 --Terminal configuration

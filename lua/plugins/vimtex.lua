@@ -1,8 +1,15 @@
 return {
   "lervag/vimtex",
+  lazy = false, -- load immediately so filetype plugin/syntax works
+  ft = { "tex", "latex" }, -- optional but good practice
   config = function()
+    -- Set the PDF viewer
     vim.g.vimtex_view_method = "zathura"
+
+    -- Disable quickfix auto open
     vim.g.vimtex_quickfix_mode = 0
+
+    -- Use latexmk for compilation
     vim.g.vimtex_compiler_method = "latexmk"
     vim.g.vimtex_compiler_latexmk = {
       executable = "latexmk",
@@ -16,5 +23,10 @@ return {
         "-verbose"
       },
     }
+
+    -- Ensure syntax is enabled
+    -- vim.cmd("filetype plugin indent on")
+    -- vim.cmd("syntax enable")
   end,
 }
+
