@@ -28,4 +28,4 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.cmd("let g:netrw_liststyle = 3")
-vim.keymap.set("i", "kk", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("i", "kj", "<ESC>", { noremap = true, silent = true })
