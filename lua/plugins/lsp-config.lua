@@ -28,126 +28,131 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
 
-      lspconfig.emmet_language_server.setup({
-        capabilities = capabilities,
-      })
+      -- Emmet LSP
+vim.lsp.config("emmet_language_server", {
+  capabilities = capabilities,
+})
+vim.lsp.enable("emmet_language_server")
 
-      -- Lua
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
+-- Lua
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
+})
+vim.lsp.enable("lua_ls")
 
-      -- TypeScript
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities,
-      })
+-- TypeScript
+vim.lsp.config("tsserver", {
+  capabilities = capabilities,
+})
+vim.lsp.enable("tsserver")
 
-      -- Python
-      lspconfig.pyright.setup({
-        capabilities = capabilities,
-      })
+-- Python
+vim.lsp.config("pyright", {
+  capabilities = capabilities,
+})
+vim.lsp.enable("pyright")
 
-      -- JavaScript
-      lspconfig.eslint.setup({
-        capabilities = capabilities,
-      })
+-- JavaScript/ESLint
+vim.lsp.config("eslint", {
+  capabilities = capabilities,
+})
+vim.lsp.enable("eslint")
 
-      -- c++
-      lspconfig.clangd.setup({
-        on_attached = function(client, bufnr)
-          client.server_capabilities.signatureHelpProvider = false
-        end,
-        capabilities = capabilities,
-      })
+-- C/C++
+vim.lsp.config("clangd", {
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    -- Disable signature help if needed
+    client.server_capabilities.signatureHelpProvider = false
+  end,
+})
+vim.lsp.enable("clangd")
 
-      -- go lang
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-        cmd = { "gopls" },
-        file_types = { "go", "gomod", "gowork", "gotmpl" },
-        settings = {
-          gopls = {
-            completeUnimported = true,
-            usePlaceholders = true,
-            analysis = {
-              unusedparams = true,
-            },
-          },
-        },
-      })
+-- Go
+vim.lsp.config("gopls", {
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analysis = {
+        unusedparams = true,
+      },
+    },
+  },
+})
+vim.lsp.enable("gopls")
 
-      -- LaTeX
-      lspconfig.texlab.setup({
-        capabilities = capabilities,
-        settings = {
-          texlab = {
-            build = {
-              onSave = true, -- Automatically build on save
-              executable = "latexmk",
-              args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-            },
-            forwardSearch = {
-              executable = "zathura", -- Replace with your PDF viewer
-              args = { "--synctex-forward", "%l:1:%f", "%p" },
-            },
-            chktex = {
-              onOpenAndSave = true,
-              onEdit = true,
-            },
-          },
-        },
-      })
+-- LaTeX (Texlab)
+vim.lsp.config("texlab", {
+  capabilities = capabilities,
+  settings = {
+    texlab = {
+      build = {
+        onSave = true,
+        executable = "latexmk",
+        args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+      },
+      forwardSearch = {
+        executable = "zathura", -- your PDF viewer
+        args = { "--synctex-forward", "%l:1:%f", "%p" },
+      },
+      chktex = {
+        onOpenAndSave = true,
+        onEdit = true,
+      },
+    },
+  },
+})
+vim.lsp.enable("texlab")
 
-      -- LaTeX with ltex for grammar checking
-      lspconfig.ltex.setup({
-        capabilities = capabilities,
-        settings = {
-          ltex = {
-            language = "en", -- Set your preferred language
-          },
-        },
-      })
+-- LaTeX Grammar Checking (LTEX)
+vim.lsp.config("ltex", {
+  capabilities = capabilities,
+  settings = {
+    ltex = {
+      language = "en",
+    },
+  },
+})
+vim.lsp.enable("ltex")
 
-      -- HTML with Jinja support
-      lspconfig.html.setup({
-        capabilities = capabilities,
-        filetypes = { "html", "jinja", "jinja.html" }, -- Add Jinja filetypes
-        settings = {
-          html = {
-            format = {
-              templating = true, -- Enable templating for Jinja
-            },
-          },
-        },
-      })
+-- HTML with Jinja support
+vim.lsp.config("html", {
+  capabilities = capabilities,
+  filetypes = { "html", "jinja", "jinja.html" },
+  settings = {
+    html = {
+      format = { templating = true },
+    },
+  },
+})
+vim.lsp.enable("html")
 
-      -- CSS/SCSS support
-      lspconfig.cssls.setup({
-        capabilities = capabilities,
-        filetypes = { "css", "scss", "less" }, -- Add SCSS and Less
-        settings = {
-          css = {
-            validate = true,
-          },
-          scss = {
-            validate = true,
-          },
-          less = {
-            validate = true,
-          },
-        },
-      })
+-- CSS/SCSS/LESS
+vim.lsp.config("cssls", {
+  capabilities = capabilities,
+  filetypes = { "css", "scss", "less" },
+  settings = {
+    css = { validate = true },
+    scss = { validate = true },
+    less = { validate = true },
+  },
+})
+vim.lsp.enable("cssls")
 
-      -- Shell scripting (Bash)
-      lspconfig.bashls.setup({
-        capabilities = capabilities,
-        filetypes = { "sh", "bash", "zsh" }, -- Shell file types
-      })
-
-      -- Keymaps
+-- Shell scripting
+vim.lsp.config("bashls", {
+  capabilities = capabilities,
+  filetypes = { "sh", "bash", "zsh" },
+})
+vim.lsp.enable("bashls")      -- Keymaps
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, {})
