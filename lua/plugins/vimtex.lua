@@ -4,7 +4,7 @@ return {
   ft = { "tex", "latex" }, -- optional but good practice
   config = function()
     -- Set the PDF viewer
-    vim.g.vimtex_view_method = "zathura"
+    vim.g.vimtex_view_method = "sumatrapdf"
 
     -- Disable quickfix auto open
     vim.g.vimtex_quickfix_mode = 0

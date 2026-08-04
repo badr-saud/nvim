@@ -97,8 +97,8 @@ vim.lsp.config("texlab", {
         args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
       },
       forwardSearch = {
-        executable = "zathura", -- your PDF viewer
-        args = { "--synctex-forward", "%l:1:%f", "%p" },
+        executable = "SumatraPDF", -- your PDF viewer (must be on PATH)
+        args = { "-reuse-instance", "-forward-search", "%f", "%l", "%p" },
       },
       chktex = {
         onOpenAndSave = true,
