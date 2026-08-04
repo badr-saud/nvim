@@ -23,18 +23,6 @@ return {
         end,
     },
     {
-        "rmehri01/onenord.nvim",
-        config = function()
-            require("onenord").setup({
-                theme = "dark",
-                borders = true,
-                disable = {
-                    background = true,
-                },
-            })
-        end,
-    },
-    {
         "rose-pine/neovim",
         name = "rose-pine",
         config = function()
@@ -47,7 +35,6 @@ return {
                     transparency = true,
                 },
             })
-            --vim.cmd.colorscheme("rose-pine")
         end,
     },
     {

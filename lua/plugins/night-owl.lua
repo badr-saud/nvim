@@ -7,6 +7,5 @@ return {
 		require("night-owl").setup({
       transparent_background = true
     })
-		--vim.cmd.colorscheme("night-owl")
 	end,
 }

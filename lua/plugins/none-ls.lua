@@ -13,9 +13,9 @@ return {
         null_ls.builtins.formatting.goimports_reviser,
         null_ls.builtins.formatting.clang_format,
         null_ls.builtins.formatting.shfmt,
-        null_ls.builtins.diagnostics.eslint_d,
-        null_ls.builtins.diagnostics.ltex,
-        null_ls.builtins.diagnostics.gopls,
+        -- eslint, ltex and gopls diagnostics already come from their real LSP
+        -- servers in lsp-config.lua; shellcheck has no LSP server here, so it
+        -- stays as a null-ls diagnostics source.
         null_ls.builtins.diagnostics.shellcheck,
       },
     })

@@ -23,10 +23,6 @@ return {
         "-verbose"
       },
     }
-
-    -- Ensure syntax is enabled
-    -- vim.cmd("filetype plugin indent on")
-    -- vim.cmd("syntax enable")
   end,
 }
 

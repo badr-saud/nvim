@@ -8,6 +8,5 @@ return {
 				background = true,
 			},
 		})
-		--vim.cmd.colorscheme("onenord")
 	end,
 }

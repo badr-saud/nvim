@@ -2,26 +2,18 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
-vim.g.mapleader = " "
-vim.g.background = "light"
+
+vim.opt.background = "light"
 
 vim.opt.swapfile = false
 
--- TmuxNavigator key mappings
-vim.keymap.set("n", "<c-h>", "<cmd> TmuxNavigateLeft<cr>", { silent = true })
-vim.keymap.set("n", "<c-j>", "<cmd> TmuxNavigateDown<cr>", { silent = true })
-vim.keymap.set("n", "<c-k>", "<cmd> TmuxNavigateUp<cr>", { silent = true })
-vim.keymap.set("n", "<c-l>", "<cmd> TmuxNavigateRight<cr>", { silent = true })
-vim.keymap.set("n", "<c-\\>", "<cmd> TmuxNavigatePrevious<cr>", { silent = true })
-
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
 -- clipboard
-vim.opt.clipboard:append("unnamedplus") -- use system clipboard
-vim.opt.clipboard = "unnamedplus" -- Use system clipboard
+vim.opt.clipboard = "unnamedplus" -- use system clipboard
 
 -- split windows
 vim.opt.splitright = true
