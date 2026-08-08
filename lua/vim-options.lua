@@ -3,7 +3,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
-vim.opt.background = "light"
+vim.opt.background = "dark"
 
 vim.opt.swapfile = false
 
